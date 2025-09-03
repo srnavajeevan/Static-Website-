@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,26 +20,196 @@
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
             },
+            animation: {
+              'fade-in-down': 'fade-in-down 0.6s ease-out forwards',
+              'fade-in-up': 'fade-in-up 0.6s ease-out 0.2s forwards',
+            },
+            keyframes: {
+              'fade-in-down': {
+                '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            }
           },
         },
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      html { scroll-behavior: smooth; }
+      .animate-fade-in-up { opacity: 0; }
+    </style>
   <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react": "https://aistudiocdn.com/react@^19.1.1",
     "@google/genai": "https://aistudiocdn.com/@google/genai@^1.16.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/"
   }
 }
 </script>
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+  <body class="bg-background font-sans text-text-dark">
+    
+    <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+      <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="#home" class="flex items-center cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-primary">
+            <path fill-rule="evenodd" d="M11.25 4.5A6.75 6.75 0 004.5 11.25v2.866c0 .937.23 1.832.656 2.634.46.861 1.157 1.558 2.018 2.018.802.426 1.697.656 2.634.656h2.866A6.75 6.75 0 0019.5 11.25 6.75 6.75 0 0011.25 4.5zM6.08 13.633a.75.75 0 01.37.662v.59a.75.75 0 01-1.5 0v-.59a.75.75 0 01.37-.662l.38-.19a.75.75 0 01.76 0l.38.19z" clip-rule="evenodd"></path>
+            <path d="M12 1.5a5.25 5.25 0 00-5.25 5.25v2.866a.75.75 0 00.161.468l.38.38a.75.75 0 001.06 0l.38-.38a.75.75 0 00.161-.468V6.75A3.75 3.75 0 0112 3a3.75 3.75 0 013.75 3.75v2.866a.75.75 0 00.161.468l.38.38a.75.75 0 001.06 0l.38-.38a.75.75 0 00.161-.468V6.75A5.25 5.25 0 0012 1.5z"></path>
+          </svg>
+          <h1 class="text-2xl font-bold text-text-dark ml-2">AgroConnect</h1>
+        </a>
+        <nav class="hidden md:flex space-x-8 items-center">
+          <a href="#home" class="text-lg font-medium transition duration-300 ease-in-out text-text-light hover:text-primary">Home</a>
+          <a href="#farming-tips" class="text-lg font-medium transition duration-300 ease-in-out text-text-light hover:text-primary">Farming Tips</a>
+          <a href="#weather" class="text-lg font-medium transition duration-300 ease-in-out text-text-light hover:text-primary">Weather</a>
+          <a href="#marketplace" class="text-lg font-medium transition duration-300 ease-in-out text-text-light hover:text-primary">Marketplace</a>
+          <a href="#gallery" class="text-lg font-medium transition duration-300 ease-in-out text-text-light hover:text-primary">Gallery</a>
+          <a href="#contact" class="text-lg font-medium transition duration-300 ease-in-out text-text-light hover:text-primary">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="relative bg-cover bg-center h-[60vh] md:h-[80vh] flex items-center" style="background-image: url('https://picsum.photos/seed/farmhero/1600/900')">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative container mx-auto px-6 text-center text-white">
+          <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-down">
+            Cultivating the Future of Farming
+          </h2>
+          <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 animate-fade-in-up">
+            Your all-in-one digital companion for modern agriculture. Get AI-powered tips, weather forecasts, and a marketplace for everything you need.
+          </p>
+          <a href="#farming-tips" class="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 duration-300 inline-block">
+            Get Farming Tips
+          </a>
+        </div>
+      </section>
+
+      <section id="farming-tips" class="bg-white py-16">
+        <div class="container mx-auto px-6 max-w-4xl">
+          <h2 class="text-3xl font-bold text-center text-text-dark mb-2">AI-Powered Farming Tips</h2>
+          <p class="text-center text-text-light mb-8">
+            Ask our AI assistant for tips on any farming topic, from soil health to crop rotation.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <input type="text" placeholder="e.g., 'How to grow organic tomatoes'" class="flex-grow w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-md shadow-sm placeholder-slate-400" disabled />
+            <button type="submit" disabled class="flex justify-center items-center py-3 px-6 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-slate-400 cursor-not-allowed">
+              Get Tip
+            </button>
+          </div>
+          <div class="mt-8 bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+            <h3 class="text-2xl font-bold text-text-dark">Mastering Compost for Richer Soil</h3>
+            <p class="mt-2 text-text-light">Composting is a simple, natural way to recycle organic waste and create a nutrient-rich supplement for your garden soil.</p>
+            <ul class="mt-4 space-y-2 list-disc list-inside">
+              <li class="text-text-dark"><b>Balance Greens & Browns:</b> Mix nitrogen-rich 'greens' with carbon-rich 'browns'.</li>
+              <li class="text-text-dark"><b>Keep it Moist:</b> Your compost pile should be as damp as a wrung-out sponge.</li>
+              <li class="text-text-dark"><b>Aerate Regularly:</b> Turn the pile with a pitchfork every week or two to provide oxygen.</li>
+            </ul>
+          </div>
+          <p class="text-center text-sm text-text-light mt-4">Note: This is a static demonstration. The AI tip generator is not active.</p>
+        </div>
+      </section>
+
+      <section id="weather" class="bg-background py-12">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-bold text-center text-text-dark mb-8">Today's Farm Forecast</h2>
+          <div class="bg-white rounded-lg shadow-xl p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="flex items-center gap-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              <div>
+                <p class="text-5xl font-bold text-text-dark">75°F</p>
+                <p class="text-xl text-text-light">Sunny</p>
+                <p class="text-lg font-medium text-text-dark mt-1">Central Valley, CA</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-4 text-center">
+              <div><p class="text-sm text-text-light">Wind</p><p class="text-lg font-semibold text-text-dark">5 mph</p></div>
+              <div><p class="text-sm text-text-light">Humidity</p><p class="text-lg font-semibold text-text-dark">40%</p></div>
+              <div><p class="text-sm text-text-light">Precipitation</p><p class="text-lg font-semibold text-text-dark">0%</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="marketplace" class="py-16">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-bold text-center text-text-dark mb-2">Marketplace</h2>
+          <p class="text-center text-text-light mb-12 max-w-2xl mx-auto">Find high-quality seeds, tools, and supplies to make your farm thrive.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"><img src="https://picsum.photos/seed/fertilizer/400/300" alt="Organic Fertilizer" class="w-full h-48 object-cover"><div class="p-4"><p class="text-sm text-text-light">Fertilizers</p><h3 class="text-lg font-semibold text-text-dark mt-1">Organic Fertilizer</h3><div class="flex justify-between items-center mt-4"><p class="text-xl font-bold text-primary">$25.99</p><button class="bg-secondary hover:bg-yellow-800 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">Add to Cart</button></div></div></div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"><img src="https://picsum.photos/seed/tomatoseeds/400/300" alt="Heirloom Tomato Seeds" class="w-full h-48 object-cover"><div class="p-4"><p class="text-sm text-text-light">Seeds</p><h3 class="text-lg font-semibold text-text-dark mt-1">Heirloom Tomato Seeds</h3><div class="flex justify-between items-center mt-4"><p class="text-xl font-bold text-primary">$4.99</p><button class="bg-secondary hover:bg-yellow-800 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">Add to Cart</button></div></div></div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"><img src="https://picsum.photos/seed/trowel/400/300" alt="Stainless Steel Trowel" class="w-full h-48 object-cover"><div class="p-4"><p class="text-sm text-text-light">Tools</p><h3 class="text-lg font-semibold text-text-dark mt-1">Stainless Steel Trowel</h3><div class="flex justify-between items-center mt-4"><p class="text-xl font-bold text-primary">$15.50</p><button class="bg-secondary hover:bg-yellow-800 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">Add to Cart</button></div></div></div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"><img src="https://picsum.photos/seed/carrots/400/300" alt="Fresh Organic Carrots" class="w-full h-48 object-cover"><div class="p-4"><p class="text-sm text-text-light">Crops</p><h3 class="text-lg font-semibold text-text-dark mt-1">Fresh Organic Carrots</h3><div class="flex justify-between items-center mt-4"><p class="text-xl font-bold text-primary">$3.00/lb</p><button class="bg-secondary hover:bg-yellow-800 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">Add to Cart</button></div></div></div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"><img src="https://picsum.photos/seed/irrigation/400/300" alt="Drip Irrigation Kit" class="w-full h-48 object-cover"><div class="p-4"><p class="text-sm text-text-light">Irrigation</p><h3 class="text-lg font-semibold text-text-dark mt-1">Drip Irrigation Kit</h3><div class="flex justify-between items-center mt-4"><p class="text-xl font-bold text-primary">$120.00</p><button class="bg-secondary hover:bg-yellow-800 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">Add to Cart</button></div></div></div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"><img src="https://picsum.photos/seed/gloves/400/300" alt="Protective Gloves" class="w-full h-48 object-cover"><div class="p-4"><p class="text-sm text-text-light">Tools</p><h3 class="text-lg font-semibold text-text-dark mt-1">Protective Gloves</h3><div class="flex justify-between items-center mt-4"><p class="text-xl font-bold text-primary">$12.99</p><button class="bg-secondary hover:bg-yellow-800 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">Add to Cart</button></div></div></div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"><img src="https://picsum.photos/seed/compost/400/300" alt="Compost Mix" class="w-full h-48 object-cover"><div class="p-4"><p class="text-sm text-text-light">Soil</p><h3 class="text-lg font-semibold text-text-dark mt-1">Compost Mix</h3><div class="flex justify-between items-center mt-4"><p class="text-xl font-bold text-primary">$18.75</p><button class="bg-secondary hover:bg-yellow-800 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">Add to Cart</button></div></div></div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"><img src="https://picsum.photos/seed/cornseeds/400/300" alt="Sweet Corn Seeds" class="w-full h-48 object-cover"><div class="p-4"><p class="text-sm text-text-light">Seeds</p><h3 class="text-lg font-semibold text-text-dark mt-1">Sweet Corn Seeds</h3><div class="flex justify-between items-center mt-4"><p class="text-xl font-bold text-primary">$5.50</p><button class="bg-secondary hover:bg-yellow-800 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">Add to Cart</button></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="bg-white py-16">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-bold text-center text-text-dark mb-2">Our Farm Gallery</h2>
+          <p class="text-center text-text-light mb-12 max-w-2xl mx-auto">A glimpse into the daily life, hard work, and beautiful moments on our farm.</p>
+          <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+            <div class="break-inside-avoid"><div class="relative overflow-hidden rounded-lg shadow-lg group"><img src="https://picsum.photos/seed/sunrise/600/400" alt="Sunrise Over the Cornfield" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300"></div><div class="absolute bottom-0 left-0 p-4"><h3 class="text-white text-lg font-semibold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">Sunrise Over the Cornfield</h3></div></div></div>
+            <div class="break-inside-avoid"><div class="relative overflow-hidden rounded-lg shadow-lg group"><img src="https://picsum.photos/seed/harvest/600/400" alt="Harvesting Season" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300"></div><div class="absolute bottom-0 left-0 p-4"><h3 class="text-white text-lg font-semibold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">Harvesting Season</h3></div></div></div>
+            <div class="break-inside-avoid"><div class="relative overflow-hidden rounded-lg shadow-lg group"><img src="https://picsum.photos/seed/soil/600/400" alt="Healthy Soil, Healthy Roots" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300"></div><div class="absolute bottom-0 left-0 p-4"><h3 class="text-white text-lg font-semibold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">Healthy Soil, Healthy Roots</h3></div></div></div>
+            <div class="break-inside-avoid"><div class="relative overflow-hidden rounded-lg shadow-lg group"><img src="https://picsum.photos/seed/drip/600/400" alt="Automated Irrigation System" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300"></div><div class="absolute bottom-0 left-0 p-4"><h3 class="text-white text-lg font-semibold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">Automated Irrigation System</h3></div></div></div>
+            <div class="break-inside-avoid"><div class="relative overflow-hidden rounded-lg shadow-lg group"><img src="https://picsum.photos/seed/produce/600/400" alt="The Beauty of Fresh Produce" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300"></div><div class="absolute bottom-0 left-0 p-4"><h3 class="text-white text-lg font-semibold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">The Beauty of Fresh Produce</h3></div></div></div>
+            <div class="break-inside-avoid"><div class="relative overflow-hidden rounded-lg shadow-lg group"><img src="https://picsum.photos/seed/tractor/600/400" alt="Tractor at Work" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300"></div><div class="absolute bottom-0 left-0 p-4"><h3 class="text-white text-lg font-semibold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">Tractor at Work</h3></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-16">
+        <div class="container mx-auto px-6">
+          <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl">
+            <h2 class="text-3xl font-bold text-center text-text-dark mb-2">Get in Touch</h2>
+            <p class="text-center text-text-light mb-8">Have questions or want to collaborate? Send us a message!</p>
+            <form class="space-y-6">
+              <div><label for="name" class="block text-sm font-medium text-text-light">Full Name</label><input type="text" id="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" /></div>
+              <div><label for="email" class="block text-sm font-medium text-text-light">Email Address</label><input type="email" id="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" /></div>
+              <div><label for="message" class="block text-sm font-medium text-text-light">Message</label><textarea id="message" rows="5" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"></textarea></div>
+              <div><button type="submit" disabled class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-slate-400 cursor-not-allowed">Send Message</button></div>
+            </form>
+            <p class="text-center text-sm text-text-light mt-4">Note: This is a static demonstration. The form is not active.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-text-dark text-white">
+      <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center mb-6 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-primary">
+              <path fill-rule="evenodd" d="M11.25 4.5A6.75 6.75 0 004.5 11.25v2.866c0 .937.23 1.832.656 2.634.46.861 1.157 1.558 2.018 2.018.802.426 1.697.656 2.634.656h2.866A6.75 6.75 0 0019.5 11.25 6.75 6.75 0 0011.25 4.5zM6.08 13.633a.75.75 0 01.37.662v.59a.75.75 0 01-1.5 0v-.59a.75.75 0 01.37-.662l.38-.19a.75.75 0 01.76 0l.38.19z" clip-rule="evenodd"></path>
+              <path d="M12 1.5a5.25 5.25 0 00-5.25 5.25v2.866a.75.75 0 00.161.468l.38.38a.75.75 0 001.06 0l.38-.38a.75.75 0 00.161-.468V6.75A3.75 3.75 0 0112 3a3.75 3.75 0 013.75 3.75v2.866a.75.75 0 00.161.468l.38.38a.75.75 0 001.06 0l.38-.38a.75.75 0 00.161-.468V6.75A5.25 5.25 0 0012 1.5z"></path>
+            </svg>
+            <span class="text-xl font-bold ml-2">AgroConnect</span>
+          </div>
+          <p class="text-sm text-slate-300">
+            &copy; 2024 AgroConnect. All Rights Reserved.
+          </p>
+          <div class="flex mt-6 md:mt-0 space-x-6">
+            <a href="#" class="hover:text-primary transition-colors">Facebook</a>
+            <a href="#" class="hover:text-primary transition-colors">Twitter</a>
+            <a href="#" class="hover:text-primary transition-colors">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
